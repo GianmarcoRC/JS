@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Semáforo para Peatones</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            height: 100vh;
+        }
+        .container {
+            display: flex;
+            justify-content: space-between;
+            width: 600px;
+        }
+        .cuadro {
+            width: 100px;
+            height: 100px;
+            background-color: #ccc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            border: 2px solid #000;
+        }
+        .semáforo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .color {
+            width: 80px;
+            height: 80px;
+            background-color: gray;
+            margin: 5px;
+            border: 2px solid #000;
+        }
+        #estado {
+            margin-top: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div id="peatonPulse" class="cuadro" style="background-color: #ffcc00;">Peatón Pulse</div>
+        <div id="peatonEspere" class="cuadro" style="background-color: gray;">Peatón Espere</div>
+    </div>
+
+    <div class="semáforo">
+        <div id="colorVerde" class="color" style="background-color: green;"></div>
+        <div id="colorAmarillo" class="color" style="background-color: gray;"></div>
+        <div id="colorRojo" class="color" style="background-color: gray;"></div>
+    </div>
+
+    <div id="estado">Espere</div>
+
+    <script>
+        const peatonPulse = document.getElementById("peatonPulse");
+        const peatonEspere = document.getElementById("peatonEspere");
+        const colorVerde = document.getElementById("colorVerde");
+        const colorAmarillo = document.getElementById("colorAmarillo");
+        const colorRojo = document.getElementById("colorRojo");
+        const estado = document.getElementById("estado");
+
+        peatonPulse.addEventListener("click", function() {
+            // Desactivar Peatón Pulse y activar Peatón Espere
+            peatonPulse.style.backgroundColor = "gray";
+            peatonEspere.style.backgroundColor = "#ffcc00";
+
+            // Cambiar el estado del semáforo
+            setTimeout(() => {
+                colorVerde.style.backgroundColor = "gray"; // Desactivar verde
+                colorAmarillo.style.backgroundColor = "yellow"; // Activar amarillo
+
+                setTimeout(() => {
+                    colorAmarillo.style.backgroundColor = "gray"; // Desactivar amarillo
+                    colorRojo.style.backgroundColor = "red"; // Activar rojo
+                    estado.textContent = "Cruce ahora";
+
+                    // Permitir cruzar durante 5 segundos
+                    setTimeout(() => {
+                        // Volver al estado inicial
+                        resetSemaforo();
+                    }, 5000);
+                }, 1000); // Espera 1 segundo para cambiar a rojo
+            }, 2000); // Espera 2 segundos para cambiar a amarillo
+        });
+
+        function resetSemaforo() {
+            peatonPulse.style.backgroundColor = "#ffcc00"; // Activar Peatón Pulse
+            peatonEspere.style.backgroundColor = "gray"; // Desactivar Peatón Espere
+            colorVerde.style.backgroundColor = "green"; // Activar verde
+            colorAmarillo.style.backgroundColor = "gray"; // Desactivar amarillo
+            colorRojo.style.backgroundColor = "gray"; // Desactivar rojo
+            estado.textContent = "Espere";
+        }
+    </script>
+
+</body>
+</html>

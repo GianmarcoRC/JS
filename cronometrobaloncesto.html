@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cronómetro</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            height: 100vh;
+            justify-content: center;
+        }
+        .visor {
+            font-size: 48px;
+            margin: 10px;
+        }
+        button {
+            margin: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="visor" id="minutos">00</div>
+    <div class="visor" id="segundos">00</div>
+    <div class="visor" id="milisegundos">00</div>
+
+    <div>
+        <button id="startBtn">Start</button>
+        <button id="stopBtn" style="display: none;">Stop</button>
+        <button id="pauseBtn" style="display: none;">Pause</button>
+        <button id="resetBtn" style="display: none;">Reset</button>
+        <button id="fwdBtn" style="display: none;">Fwd</button>
+        <button id="rewBtn" style="display: none;">Rew</button>
+    </div>
+
+    <div>
+        <label><input type="radio" name="selector" value="minutos" checked> Minutos</label>
+        <label><input type="radio" name="selector" value="segundos"> Segundos</label>
+        <label><input type="radio" name="selector" value="milisegundos"> milisegundos</label>
+    </div>
+
+    <script>
+        const startBtn = document.getElementById("startBtn");
+        const stopBtn = document.getElementById("stopBtn");
+        const pauseBtn = document.getElementById("pauseBtn");
+        const resetBtn = document.getElementById("resetBtn");
+        const fwdBtn = document.getElementById("fwdBtn");
+        const rewBtn = document.getElementById("rewBtn");
+
+        const minutosVisor = document.getElementById("minutos");
+        const segundosVisor = document.getElementById("segundos");
+        const milisegundosVisor = document.getElementById("milisegundos");
+
+        let fwdInterval, rewInterval;
+
+        // Inicializa los visores con valores aleatorios
+        function initializeRandomValues() {
+            minutosVisor.textContent = formatNumber(Math.floor(Math.random() * 60));
+            segundosVisor.textContent = formatNumber(Math.floor(Math.random() * 60));
+            milisegundosVisor.textContent = formatNumber(Math.floor(Math.random() * 100));
+        }
+
+        // Formatea el número para que tenga siempre dos dígitos
+        function formatNumber(num) {
+            return (num < 10 ? '0' : '') + num;
+        }
+
+        startBtn.onclick = function() {
+            startBtn.style.display = "none";
+            stopBtn.style.display = "inline";
+            pauseBtn.style.display = "inline";
+            initializeRandomValues();
+        };
+
+        stopBtn.onclick = function() {
+            startBtn.style.display = "inline";
+            stopBtn.style.display = "none";
+            pauseBtn.style.display = "none";
+            resetBtn.style.display = "inline";
+            fwdBtn.style.display = "inline";
+            rewBtn.style.display = "inline";
+        };
+
+        pauseBtn.onclick = function() {
+            startBtn.style.display = "inline";
+            stopBtn.style.display = "none";
+            pauseBtn.style.display = "none";
+            resetBtn.style.display = "none";
+            fwdBtn.style.display = "none";
+            rewBtn.style.display = "none";
+        };
+
+        resetBtn.onclick = function() {
+            minutosVisor.textContent = "00";
+            segundosVisor.textContent = "00";
+            milisegundosVisor.textContent = "00";
+        };
+
+        fwdBtn.onmousedown = function() {
+            incrementValue();
+            fwdInterval = setInterval(incrementValue, 100); // Cambia cada 100 ms
+        };
+
+        rewBtn.onmousedown = function() {
+            decrementValue();
+            rewInterval = setInterval(decrementValue, 100); // Cambia cada 100 ms
+ };
+
+        // Función para incrementar el valor según el selector
+        function incrementValue() {
+            const radios = document.getElementsByName("selector");
+            let selector;
+            for (let i = 0; i < radios.length; i++) {
+                if (radios[i].checked) {
+                    selector = radios[i].value;
+                    break;
+                }
+            }
+            if (selector === "minutos") {
+                let minutos = parseInt(minutosVisor.textContent) + 1;
+                minutosVisor.textContent = formatNumber(minutos);
+            } else if (selector === "segundos") {
+                let segundos = parseInt(segundosVisor.textContent) + 1;
+                segundosVisor.textContent = formatNumber(segundos);
+            } else {
+                let milisegundos = parseInt(milisegundosVisor.textContent) + 1;
+                milisegundosVisor.textContent = formatNumber(milisegundos);
+            }
+        }
+
+        // Función para decrementar el valor según el selector
+        function decrementValue() {
+            const radios = document.getElementsByName("selector");
+            let selector;
+            for (let i = 0; i < radios.length; i++) {
+                if (radios[i].checked) {
+                    selector = radios[i].value;
+                    break;
+                }
+            }
+            if (selector === "minutos") {
+                let minutos = Math.max(0, parseInt(minutosVisor.textContent) - 1);
+                minutosVisor.textContent = formatNumber(minutos);
+            } else if (selector === "segundos") {
+                let segundos = Math.max(0, parseInt(segundosVisor.textContent) - 1);
+                segundosVisor.textContent = formatNumber(segundos);
+            } else {
+                let milisegundos = Math.max(0, parseInt(milisegundosVisor.textContent) - 1);
+                milisegundosVisor.textContent = formatNumber(milisegundos);
+            }
+        }
+
+        // Limpiar intervalos al soltar el botón
+        document.onmouseup = function() {
+            clearInterval(fwdInterval);
+            clearInterval(rewInterval);
+        };
+    </script>
+
+</body>
+</html>
