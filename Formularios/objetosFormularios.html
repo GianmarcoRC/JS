@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formularios</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+        .selected-value {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #000;
+            cursor: pointer;
+            display: inline-block;
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Selecciona una opción</h1>
+    
+    <form id="myForm">
+        <label>
+            <input type="radio" name="option" value="check" onclick="mostrarCheck()"> Check
+        </label><br>
+        <label>
+            <input type="radio" name="option" value="select" onclick="mostrarSelect()"> Select
+        </label><br>
+        <label>
+            <input type="radio" name="option" value="list" onclick="mostrarList()"> List
+        </label><br>
+    </form>
+
+    <div id="checkValues" class="hidden">
+        <h2>Selecciona un valor para Check</h2>
+        <label>
+            <input type="checkbox" id="check1" name="check" value="Valor 1" onclick="mostrarSeleccionCheck('Valor 1')"> Valor 1
+        </label><br>
+        <label>
+            <input type="checkbox" id="check2" name="check" value="Valor 2" onclick="mostrarSeleccionCheck('Valor 2')"> Valor 2
+        </label><br>
+        <label>
+            <input type="checkbox" id="check3" name="check" value="Valor 3" onclick="mostrarSeleccionCheck('Valor 3')"> Valor 3
+        </label><br>
+        <label>
+            <input type="checkbox" id="check4" name="check" value="Valor 4" onclick="mostrarSeleccionCheck('Valor 4')"> Valor 4
+        </label>   
+    </div>
+
+    <div id="selectValues" class="hidden">
+        <h2>Selecciona un valor para Select</h2>
+        <select onchange="mostrarSeleccion(this.value)">
+            <option selected="true" disabled>Nada seleccionado</option>
+            <option value="Valor 1">Valor 1</option>
+            <option value="Valor 2">Valor 2</option>
+            <option value="Valor 3">Valor 3</option>
+            <option value="Valor 4">Valor 4</option>
+        </select>
+    </div>
+
+    <div id="listValues" class="hidden">
+        <h2>Selecciona un valor para List</h2>
+        <ul>
+            <li>Valor 1 <button onclick="mostrarSeleccion('Valor 1')">Seleccionar</button></li>
+            <li>Valor 2 <button onclick="mostrarSeleccion('Valor 2')">Seleccionar</button></li>
+            <li>Valor 3 <button onclick="mostrarSeleccion('Valor 3')">Seleccionar</button></li>
+            <li>Valor 4 <button onclick="mostrarSeleccion('Valor 4')">Seleccionar</button></li>
+        </ul>
+    </div>
+
+    <div id="selectedValue" class="hidden selected-value" onclick="ocultarSeleccion()"></div>
+    
+       
+    
+
+
+
+
+
+
+
+
+
+</body>
+<script src="objetosFormulario.js"></script>
+</html>

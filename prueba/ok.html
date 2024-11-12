@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculador de DNIs</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        #result {
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Calculador de DNIs</h1>
+    <p>Presiona una tecla para calcular los DNIs que contienen esa letra.</p>
+    <div id="result"></div>
+
+    <script>
+        // Letras que corresponden a los DNIs
+        const letras = 'TRWAGMYFPDXBNJZSQVHLCKE';
+
+        // Función para calcular DNIs con la letra especificada
+        function calcularDNIs(letra) {
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = ''; // Limpiar resultados anteriores
+
+            // Verificar si la letra es válida
+            if (!letra || letra.length !== 1 || !letras.includes(letra.toUpperCase())) {
+                resultDiv.innerHTML = 'Por favor, presiona una letra válida.';
+                return;
+            }
+
+            const matchingDNIs = [];
+            for (let i = 1; i <= 9999; i++) {
+                const dni = (i < 10 ? '000' : i < 100 ? '00' : i < 1000 ? '0' : '') + i;
+                const letraCorrespondiente = letras.charAt(i % 23); // Obtener la letra correspondiente
+                if (letraCorrespondiente === letra.toUpperCase()) {
+                    matchingDNIs.push(`${dni} - ${letraCorrespondiente}`);
+                }
+            }
+
+            // Mostrar resultados
+            if (matchingDNIs.length > 0) {
+                resultDiv.innerHTML = `<strong>DNIs que contienen la letra ${letra.toUpperCase()}:</strong><br>${matchingDNIs.join('<br>')}`;
+            } else {
+                resultDiv.innerHTML = `No se encontraron DNIs que contengan la letra ${letra.toUpperCase()}.`;
+            }
+        }
+
+        // Escuchar el evento de teclado
+        document.addEventListener('keydown', (evento) => {
+            calcularDNIs(evento.key);
+        });
+    </script>
+</body>
+
+</html>

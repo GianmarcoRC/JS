@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Agenda</title>
+</head>
+<body>
+    <!-- Este ejercicio quiere simular un cartel para un evento deportivo. Para ello hay que pulsar sobre el color correcto que lo activa.
+Una vez activado, el evento va rotando en cuatro espacios del espacio “carrusel” (diaN), cambiando el texto y el color de fondo de
+posición cada medio segundo.
+(Hay que completar la variable literal con otros tres textos, un total de cuatro)
+Hay que cumplir lo siguiente para que funcione el anuncio del evento:
+2. El color para hacerlo funcionar es el dorado. Si no es el correcto, aparece el texto “OPCIÓN NO VÁLIDA” en el espacio
+“avisos”.
+1. Pulsar en “Comenzar”. Aparece el panel con los colores. (el estilo que hace aparecer el panel es visibility con valor visible)
+3. Cuando se pulsa sobre el color dorado ocurre que:
+• El botón de inicio cambia de texto a “Parar anuncios”.
+• Los mensajes de anuncios desaparecen. Cada anuncio aparece en su día, hay cuatro anuncios y cuatro div, uno por día.
+• Desaparecen también la selección de colores.
+• En el espacio “carrusel”, cada medio segundo, cambia de posición el anuncio con su color de fondo. Los colores a usar
+vienen dados en el archivo .js en literal, starcolor y defaultcolor.
+4. Al pulsar “Parar anuncios”, se detiene el anuncio y se vuelve al estado inicial. -->
+
+<div id="panelColores">
+    <button onclick="activarEventos()">Comenzar</button>
+    <div id="avisos" style="display: none;">OPCIÓN NO VÁLIDA</div>
+    <div id="carrusel" style="display: none;">
+        <div id="dia1" style="background-color: red;">Texto del día 1</div>
+        <div id="dia2" style="background-color: blue;">Texto del día 2</div>
+        <div id="dia3" style="background-color: green;">Texto del día 3</div>
+        <div id="dia4" style="background-color: yellow;">Texto del día 4</div>
+    </div>
+</div>
+
+
+
+</body>
+<script src="eventos.js"></script>
+</html>
