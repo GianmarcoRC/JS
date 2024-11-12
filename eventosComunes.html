@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego de Rectángulos</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        #container {
+            display: flex;
+            gap: 20px;
+        }
+        .rectangle {
+            width: 200px;
+            height: 150px;
+            background-color: grey;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            color: white;
+            position: relative;
+        }
+        #rect1 {
+            background-color: green;
+        }
+        #rect3 {
+            resize: both;
+            overflow: auto;
+        }
+        #dialog {
+            position: absolute;
+            background-color: black;
+            color: white;
+            padding: 5px;
+            border-radius: 5px;
+            top: 0;
+            left: 0;
+            display: none;
+        }
+        #inputText {
+            display: none;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="rect1" class="rectangle">Rectángulo 1</div>
+        <div id="rect2" class="rectangle">Rectángulo 2 <div id="dialog"></div></div>
+        <div id="rect3" class="rectangle">Rectángulo 3</div>
+    </div>
+    <input type="text" id="inputText" placeholder="Escribe aquí...">
+
+    <script>
+        const rect1 = document.getElementById('rect1');
+        const rect2 = document.getElementById('rect2');
+        const rect3 = document.getElementById('rect3');
+        const inputText = document.getElementById('inputText');
+        const dialog = document.getElementById('dialog');
+
+        // 2. Mostrar mensaje después de 2 segundos y activar rectángulo 1
+        setTimeout(() => {
+            alert('Todo preparado, comienza a jugar!');
+            activateRect1();
+        }, 2000);
+
+        function activateRect1() {
+            // 3. Cambiar color del rectángulo 1 al pasar el ratón
+            rect1.addEventListener('mouseenter', () => rect1.style.backgroundColor = 'blue');
+            rect1.addEventListener('mouseleave', () => rect1.style.backgroundColor = 'green');
+            
+            // 4. Activar rectángulos 2 y 3 al hacer clic
+            rect1.addEventListener('click', activateRectangles);
+        }
+
+        function activateRectangles() {
+            // 5. Mostrar coordenadas en un cuadro de diálogo
+            rect2.addEventListener('mousemove', showCoordinates); 
+
+            // 6. Fijar coordenadas al hacer clic y cambiar el color
+            rect2.addEventListener('click', lockCoordinates);
+
+            // 7. Cambiar color del fondo del rectángulo 2 al soltar el ratón
+            rect2.addEventListener('mouseup', () => rect2.style.backgroundColor = 'lightgrey');
+
+            // 8. Mostrar input al salir del rectángulo 2
+            rect2.addEventListener('mouseleave', () => inputText.style.display = 'block');
+
+            // 9. Mostrar dimensiones al redimensionar rectángulo 3
+            rect3.addEventListener('mousemove', updateDimensions);
+        }
+
+        // 5. Función para mostrar coordenadas
+        function showCoordinates(event) {
+            dialog.style.display = 'block';
+            dialog.textContent = `Coordenadas: (${event.offsetX}, ${event.offsetY})`;
+            dialog.style.left = `${event.offsetX + 10}px`;
+            dialog.style.top = `${event.offsetY + 10}px`;
+        }
+
+        // 6. Función para fijar las coordenadas al hacer clic en el rectángulo 2
+        function lockCoordinates(event) {
+            rect2.textContent = `Coordenadas fijas: (${event.offsetX}, ${event.offsetY})`;
+            dialog.style.display = 'none';
+        }
+
+        // 9. Función para actualizar dimensiones del rectángulo 3
+        function updateDimensions() {
+            rect3.textContent = `Ancho: ${rect3.clientWidth}px, Alto: ${rect3.clientHeight}px`;
+        }
+
+        // 10 y 11. Control de teclas para el cuadro de texto
+        document.addEventListener('keydown', (event) => {
+            if (event.key.toLowerCase() === 's') {
+                inputText.disabled = false;
+                inputText.focus();
+            } else if (!inputText.disabled) {
+                handleKeyInput(event.key.toLowerCase());
+            }
+        });
+
+        function handleKeyInput(key) {
+            if (key === 'r') resetGame();
+            else if (key === 'h') hideRect3();
+            else if (key === 'b') showRect3();
+            else if (key === 'q') quitGame();
+            else console.log(`Código de tecla: ${key}`);
+        }
+
+        function hideRect3() {
+            alert("Vas a borrar un rectángulo");
+            rect3.style.display = 'none';
+        }
+
+        function showRect3() {
+            if (confirm("¿Estás seguro de mostrar el rectángulo?")) {
+                rect3.style.display = 'block';
+            }
+        }
+
+        function quitGame() {
+            alert("Despedida, cerrando la página en 3 segundos...");
+            setTimeout(() => window.close(), 3000);
+        }
+
+        // 11. Reiniciar el juego a la situación inicial
+        function resetGame() {
+            rect1.style.backgroundColor = 'green';
+            rect2.style.backgroundColor = 'grey';
+            rect2.textContent = 'Rectángulo 2';
+            rect3.style.display = 'block';
+            rect3.textContent = 'Rectángulo 3';
+            inputText.style.display = 'none';
+            inputText.value = '';
+            inputText.disabled = true;
+
+            // Remover eventos al resetear
+            rect2.removeEventListener('mousemove', showCoordinates);
+            rect2.removeEventListener('click', lockCoordinates);
+            rect2.removeEventListener('mouseup', () => rect2.style.backgroundColor = 'lightgrey');
+            rect2.removeEventListener('mouseleave', () => inputText.style.display = 'block');
+            rect3.removeEventListener('mousemove', updateDimensions);
+
+            // Reactivar rectángulo 1
+            activateRect1();
+        }
+    </script>
+</body>
+</html>
