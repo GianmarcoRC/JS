@@ -1,0 +1,153 @@
+/* IMPORTANTE para evitar descuadres */
+* {
+	box-sizing: border-box;
+}
+
+/* Definimos un contenedor auxiliar para especificar el tamaño de la página y alineación */
+.centrado{
+	width: 80%;
+	margin: 0 auto;
+}
+
+.menu{	
+	display: flex;
+	margin-left: 1em;
+}
+
+/* En este caso se opta por la altura en em para que se adapte al tamaño de fuente de los elementos de la clase menú*/
+.topdown{
+	height: 6em;
+	border-radius: 1em;
+	border: 1px solid black;
+}
+
+/* Estilos de cada ítem de menú */
+.menu div.menu-item{
+	text-align: center;
+	width: 7rem; /* Ancho de ítems de menú */
+	padding: 0.25em;
+	background-color: blue;
+	color: lightgrey;
+}
+
+/* Display flex para alinear el menú en la cabecera */
+#cabecera{
+	background-color: lightblue;
+	margin: auto;
+	display: flex;
+	align-items: flex-end; /* Alineación vertical inferior de los ítems de menú */
+}
+
+/* Importante definir la altura en el contenedor principal con alguna unidad que no sea porcentaje. Así se calculan bien las de los elementos internos */
+.main_container{		
+	border: 1px solid black;
+	padding: 0.5rem;
+	height: 65vh;
+	box-shadow: 2px 2px 5px blue;
+	margin-top: 0.5rem;	
+	display: flex;
+}
+
+/* Clase con borde rojo para las cajas */
+.caja{
+	border: 1px dotted red;
+}
+
+#izquierda{
+	flex-basis: 80%;
+	height: 100%;
+	margin-right: 0.5rem;
+	padding: 0.5rem;
+	gap: 0.5rem;
+	border: 1px solid black;
+	display: flex;
+	flex-direction: column; /* Para posicionar manualmente los items caja_pequeña y caja_grande */
+}
+
+#derecha{
+	border: 1px solid black;
+	flex-basis: 20%;
+	height: 100%;	
+}
+
+/* Altura de las cajas con contenido (flex-basis al ser flex-direction: column) */
+#caja_pequeña {
+	flex-basis: 30%;
+}
+
+#caja_grande{
+	flex-basis: 70%;
+	display: flex;
+	gap: 0.5em;
+}
+
+/* Los artículos con otras noticias ocupan el espacio equitativamente */
+#caja_grande .contenido{
+	flex-grow: 1;
+}
+
+/* Estilos del pie de página */
+#pie{
+	margin-top: 0.5rem;
+}
+
+/* Como se puede observar, si el diseño es eficiente apenas hace falta cambiar propiedades */
+@media all and (max-width: 992px) {
+	/* Los artículos de la sección "caja pequeña" pasan a mostrarse de arriba a abajo */
+	#caja_grande{
+		flex-direction: column;
+	}
+	
+	/* Dejamos un 50% para la caja_grande y el resto para la caja_pequeña */
+	#caja_pequeña{
+		flex-basis: 50%;
+	}
+	
+	/* El menú ocupa el 100% y cada ítem se reparte el espacio con flex-grow */
+	.menu{
+		margin: 0 1em;
+		flex: 100%;
+	}
+	
+	.menu-item{
+		flex: 1;
+	}
+}
+
+@media all and (max-width: 768px) {
+	/* Cambio de estilos del menú. En principio no hace falta volver a asignar 7rem */
+	#cabecera{
+		align-items: center;
+		justify-content: center;
+	}
+				
+    .menu{
+		flex-direction: column;
+		flex: 0;
+	}
+	
+	/* Se oculta una de las cajas */
+	#caja_grande .caja:last-of-type{
+		display: none;
+	}
+	
+	/* El contenedor pasa a ocupar el 100% */
+	.centrado{
+		width: 100%;
+	}
+}
+
+@media all and (max-width: 544px) {
+	/* El contenedor con ID izquierda ocupa el espacio que deja la barra lateral */
+    #izquierda{
+		flex-grow: 1;		
+		margin-right: 0;
+	}
+		
+	/* Se cambia la orientación para que la barra lateral pase a una posición inferior */
+	.main_container{
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+}
+
