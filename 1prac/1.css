@@ -1,0 +1,11 @@
+#bloque1 {
+    width: 100px;
+    height: 100px;
+   border: 2px solid red;
+}
+#bloque2 {
+    width: 100px;
+    height: 100px;
+    border: 2px solid blue;
+
+}

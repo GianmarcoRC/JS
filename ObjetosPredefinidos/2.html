@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formatear Palabras</title>
+    <style>
+        /* Estilos para los formatos especiales */
+        .negrita { font-weight: bold; }
+        .parpadeante { animation: parpadear 1s infinite; }
+        @keyframes parpadear {
+            0% { opacity: 1; }
+            50% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        .grande { font-size: 2em; }
+        .minuscula { font-size: 0.8em; }
+        .mayuscula { text-transform: uppercase; }
+        .minusculas { text-transform: lowercase; }
+        </style>
+</head>
+<body>
+    
+    <textarea id="text" rows="6" cols="60"></textarea><br>
+    <input type="text" id="buscar" placeholder="Palabra a buscar">
+    <input type="text" id="formato" placeholder="Formato (B, b, G, M, n, s)">
+    <button id="cambiar-primera">Aplicar Formato a la Primera Ocurrencia</button>
+    <h1>Resultado</h1>
+    <div id="resultado"></div>
+</body>
+<script src="2.js"></script>
+
+</html>

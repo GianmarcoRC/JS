@@ -1,0 +1,9 @@
+div.contenedor{
+    border: 1px solid black;
+   
+}
+
+tr{
+    padding: 10px;
+    display: grid;
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+</head>
+<body>
+    <div class="container">
+        <form name="F1">
+            <div class="mb-3">
+                <label for="first_name" class="form-label">Usuario:</label>
+                <input type="text" class="form-control" id="first_name" name="first_name" required>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Contraseña:</label>
+                <input type="password" class="form-control" id="password" name="password" required>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Edad:</label>
+                <input type="number" class="form-control" id="Edad" name="Edad" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Estudios maximos:</label>
+                <input type="radio" class="form-control" id="eso" name="Estudios" required >ESO
+                <input type="radio" class="form-control" id="Bachiller" name="Estudios" required>BACHILLERATO
+                <input type="radio" class="form-control" id="FP" name="Estudios" required >FP
+            </div>
+            <div class="mb-3">
+                <label for="last_name" class="form-label">Idiomas:</label>
+                <input type="checkbox" class="form-control" id="Español" name="idiomas" required >Español
+                <input type="checkbox" class="form-control" id="Francés" name="idiomas" required >Francés
+                <input type="checkbox" class="form-control" id="Inglés" name="idiomas" required >Inglés
+                <input type="checkbox" class="form-control" id="Chino" name="idiomas" required >Chino
+            </div>
+            <div class="mb-3">
+                <label for="birth_date" class="form-label">Elige tu ciudad:</label>
+                <select name="Domicilio" id="Domicilio">
+                    <option  value="default" selected>Elige tu comunidad</option>
+                    <option  value="comunidad">Madrid</option>
+                    <option  value="comunidad">Sevilla</option>
+                    <option  value="comunidad">Teruel</option>
+                    <option  value="comunidad">Zaragoza</option>
+                    <option  value="comunidad">Tenerife</option>
+                    <option  value="comunidad">Salamanca</option>
+                    <option  value="comunidad">Segovia</option>
+                    <option  value="comunidad">Leon</option>
+                    <option  value="comunidad">Guadalajara</option>
+                    <option  value="comunidad">Valencia</option>
+                </select>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
