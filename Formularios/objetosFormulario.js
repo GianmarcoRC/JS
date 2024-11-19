@@ -26,7 +26,7 @@ function mostrarSeleccion(valor) {
 }
 function mostrarSeleccionCheck(valor) {
     const selectedValueDiv = document.getElementById("selectedValue");
-    selectedValueDiv.textContent = `Valor seleccionado: ${valor}\n ${valor}`;
+    selectedValueDiv.textContent = `Valor seleccionado: ${valor}`;
     selectedValueDiv.style.display = "inline-block";
 }
 function ocultarSeleccion() {
