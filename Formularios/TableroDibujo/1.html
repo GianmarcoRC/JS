@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Acceso al Tablero</title>
+    <style>
+        .celda {
+    transition: background-color 0.2s;
+}
+
+.celda:hover {
+    border: 1px solid black;
+}
+    </style>
+</head>
+<body>
+    <div id="acceso">
+        <input type="text" id="clave" placeholder="Introduce la clave de 10 caracteres">
+        <div>
+            <input type="checkbox" id="cb1"> Checkbox 1<br>
+            <input type="checkbox" id="cb2"> Checkbox 2<br>
+            <input type="checkbox" id="cb3"> Checkbox 3<br>
+            <input type="checkbox" id="cb4"> Checkbox 4<br>
+            <input type="checkbox" id="cb5"> Checkbox 5<br>
+            <input type="checkbox" id="cb6"> Checkbox 6<br>
+        </div>
+        <button id="entrar">Entrar</button>
+        <p id="mensaje"></p>
+    </div>
+    <div id="zonadibujo" style="display:none;"></div>
+    <script src="1.js"></script>
+</body>
+</html>

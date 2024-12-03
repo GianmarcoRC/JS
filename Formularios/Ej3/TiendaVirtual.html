@@ -13,7 +13,7 @@
 
 
     <div class="container mt-5">
-        <form name="Compra">
+        <form name="Compra" novalidate>
             <div class="mb-3">
                 <label for="nombre" class="form-label">Nombre</label>
                 <input type="text" id="nombre" name="nombre" class="form-control" required>
@@ -31,32 +31,32 @@
     
             <div class="mb-3">
                 <label for="codigo_postal" class="form-label">Código Postal</label>
-                <input type="text" id="codigo_postal" name="codigo_postal" class="form-control" pattern="\d{5}" title="Debe contener 5 dígitos" required>
+                <input type="text" id="codigo_postal" name="codigo_postal" class="form-control" pattern="\d{5}" title="Debe contener 5 dígitos" >
             </div>
     
             <div class="mb-3">
                 <label for="provincia" class="form-label">Provincia</label>
-                <input type="text" id="provincia" name="provincia" class="form-control" required>
+                <input type="text" id="provincia" name="provincia" class="form-control" >
             </div>
     
             <div class="mb-3">
                 <label for="telefono" class="form-label">Teléfono</label>
-                <input type="tel" id="telefono" name="telefono" class="form-control" pattern="\d{9}" title="Debe contener 9 dígitos" required>
+                <input type="tel" id="telefono" name="telefono" class="form-control" pattern="\d{9}" title="Debe contener 9 dígitos" >
             </div>
     
             <div class="mb-3">
                 <label for="correo" class="form-label">Correo Electrónico</label>
-                <input type="email" id="correo" name="correo" class="form-control" required>
+                <input type="email" id="correo" name="correo" class="form-control" >
             </div>
     
             <div class="mb-3">
                 <label for="fecha_entrega" class="form-label">Fecha de Entrega</label>
-                <input type="date" id="fecha_entrega" name="fecha_entrega" class="form-control" required>
+                <input type="date" id="fecha_entrega" name="fecha_entrega" class="form-control" >
             </div>
     
             <div class="mb-3">
                 <label for="forma_pago" class="form-label">Forma de Pago</label>
-                <select id="forma_pago" name="forma_pago" class="form-select" required>
+                <select id="forma_pago" name="forma_pago" class="form-select" >
                     <option value="tarjeta">Tarjeta de Crédito/Débito</option>
                     <option value="paypal">PayPal</option>
                     <option value="transferencia">Transferencia Bancaria</option>
@@ -65,11 +65,11 @@
     
             <div class="mb-3">
                 <label for="productos" class="form-label">Productos y Cantidad</label>
-                <textarea id="productos" name="productos" class="form-control" rows="5" placeholder="Especifica los productos y cantidades (Ejemplo: Camisa x2, Pantalón x1)" required></textarea>
+                <textarea id="productos" name="productos" class="form-control" rows="5" placeholder="Especifica los productos y cantidades (Ejemplo: Camisa x2, Pantalón x1)" ></textarea>
             </div>
     
             <div class="form-check mb-3">
-                <input type="checkbox" id="condiciones" name="condiciones" class="form-check-input" required>
+                <input type="checkbox" id="condiciones" name="condiciones" class="form-check-input" >
                 <label class="form-check-label" for="condiciones">Acepto las condiciones de compra</label>
             </div>
     
