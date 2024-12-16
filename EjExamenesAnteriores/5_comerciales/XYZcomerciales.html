@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="XYZcomerciales.css" />
+    <title>Búsqueda de comerciales</title>
+</head>
+
+<body>
+    <table width="500" border="1" summary="Búsqueda de premios">
+        <caption>
+            Busca tu comercial en tu provincia
+        </caption>
+        <tr>
+            <td>Empresa: </td>
+            <td colspan="3" align="center"><input type="text" id="empr"></td>
+        </tr>
+        <tr>
+            <td>
+                <label for="sprov">Provincia: </label>
+            </td>
+            <td colspan="3" align="center">
+        <select id="sprov" name="sprov">
+            <option value="">Elige tu provincia</option>
+            <option value="Mad">Madrid</option>
+            <option value="Sev">Sevilla</option>
+            <option value="Val">Valencia</option>
+            <option value="Mur">Murcia</option>
+        </select>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4" align="center"><span id="btnbuscar">Iniciar la búsqueda</span></td>
+        </tr>
+    </table>
+<hr>
+<div id="avisos">
+</div>
+<div id="consola">
+</div>
+
+</body>
+<script src="comerciales_datos.js"></script>
+<script src="XYZcomerciales.js"></script>
+</html>

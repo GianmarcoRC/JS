@@ -1,0 +1,72 @@
+div {
+  border: 1px solid black;
+  width: 300px;
+  min-height: 20px;
+  padding: 10px;
+  margin: 5px;
+}
+
+#start {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-size: 1.2em;
+  text-align: center;
+  min-width: 100px;
+  height: 25px;
+  background-color: gainsboro;
+  margin-left: 50px;
+}
+
+.panel {
+  margin-top: 10px;
+  background-color: ghostwhite;
+}
+
+#control {
+  margin-left: 25px;
+  width: 350px;
+  visibility: hidden;
+}
+
+#pantones {
+  width: 400px;
+  visibility: hidden;
+}
+
+.btncolor {
+  width: 50px;
+  height: 50px;
+  padding: 5px;
+  margin: 20px;
+  align-items: center;
+  display: inline-block;
+}
+
+.visor {
+  width: 300px;
+  float: left;
+  padding: 10px;
+  margin-top: 5px;
+  margin-left: 10px;
+  position: relative;
+  top: 10px;
+}
+
+.panton {
+  width: 50px;
+  height: 100px;
+  padding: 15px;
+  display: inline-block;
+}
+
+#ctrBlue {
+  background-color: mediumblue;
+}
+
+#ctrRed {
+  background-color: crimson;
+}
+
+#ctrGreen {
+  background-color: forestgreen;
+}

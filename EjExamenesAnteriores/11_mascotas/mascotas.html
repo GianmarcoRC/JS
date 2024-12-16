@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de mascotas</title>
+</head>
+
+<body>
+    <h2>Busca los animales:</h2>
+    <hr>
+    Por raza:
+        <label for="pers">Persa</label>
+        <input type="checkbox" id="pers" value="P">
+        <label for="retr">Retriever</label>
+        <input type="checkbox" id="retr" value="R">
+        <label for="siam">Siamés</label>
+        <input type="checkbox" id="siam" value="S">
+    <span>&nbsp;<img src="icono_lupa100x60.png" id="lupa" height="25px">&nbsp;</span>
+    Por fecha de nacimiento: Desde <input type="date" id="fecha1"><span>&nbsp;hasta&nbsp;</span><input type="date" id="fecha2">
+    <hr>
+    <div id="lienzo"></div>
+</body>
+<script src="listamascotas.js"></script>
+<script src="practica2e_2.js"></script>
+
+</html>

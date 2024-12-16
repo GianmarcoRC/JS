@@ -1,0 +1,80 @@
+/*
+div {
+    border: 1px solid black;   
+}
+*/
+  
+.celda {
+    width: 15px;
+    height: 25px;
+    border: 2px solid rgba(224, 54, 48, 0.904);
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
+    font-size: 0.7em; 
+    color:rgba(224, 54, 48, 0.904);
+    padding-top: 2px;
+    text-align: center;
+}
+
+.celdaBlanca {
+    border: none;
+    color: white;
+}
+
+.numero {
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
+    font-size: 2em; 
+    text-align: center;
+    width: 40px;
+    height: 50px;
+    padding-top: 10px; 
+    border-radius: 5px;
+    background-color: white;
+    color:rgba(177, 26, 21, 0.904);
+}
+
+.textos {
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
+    font-size: 1em;
+    text-align: center;
+}
+
+.resultados {
+    background-color: rgb(248, 218, 47);
+}
+
+td.resultados {
+    background-color: rgb(8, 8, 241);
+    color: white;
+    font-weight: bold;
+}
+
+#cabecera {
+    width: 600px;
+    background-color: rgb(8, 8, 241);
+    color: white;
+    padding: 5px;
+}
+
+#start {
+    width: 150px;
+    height: 25px;
+    padding: 15px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    margin-left: 100px;
+    background-color: indianred;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+}
+
+#boleto {
+    margin-top: 20px;
+    margin-left: 120px;
+    background-color: white;
+}
+
+#sorteo {
+    margin-top: 20px;
+    margin-left: 20px;
+}

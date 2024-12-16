@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="XYZda2d1e-1i_premios.css" />
+    <title>Ejercicio 1. Búsqueda de palabras</title>
+</head>
+<body>
+    <table width="500" border="1" summary="Búsqueda de premios">
+        <caption>
+            Escribe el número a buscar
+        </caption>
+        <tr>
+            <td>Tu número: </td>
+            <td colspan="3" align="center"><input type="text" id="txtin"></td>
+        </tr>
+        <tr>
+            <td>
+                Buscar por:
+            </td>
+            <td>
+                <input type="radio" name="tipop" value="C"><label>Nº Completo</label>
+            </td>
+            <td>
+                <input type="radio" name="tipop" value="R"><label>Reintegro</label>
+            </td>
+            <td>
+                <input type="radio" name="tipop" value="T"><label>Terminación</label>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4" align="center"><span id="btnbuscar">Iniciar la búsqueda</span></td>
+        </tr>
+    </table>
+<hr>
+<div id="avisos">
+</div>
+<div id="consola">
+</div>
+</body>
+<script type="text/javascript" src="da2d1e-1i_premios_datos.js"></script>
+<script type="text/javascript" src="XYZda2d1e-1i_premios.js"></script>
+</html>

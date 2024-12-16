@@ -1,0 +1,53 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualizar el pin de una tarjeta de crédito</title>
+
+    <link type="text/css" rel="stylesheet" href="pintarjetaXYZ.css"/>
+</head>
+<body>
+<div id="cabecera">
+    <table width=500 border="1" summary="Control de entrada">
+        <caption>
+          Elige las opciones correctas para ver tu pin
+        </caption>
+        <tr>
+          <td>Palabra clave</td>
+          <td colspan="2" align="center"><input type="text" id="keyword"></td>
+        </tr>
+        <tr>
+          <td colspan="3" align="center">Año</td>
+        </tr>
+        <tr>
+            <td align="center"><label for="chk1">2001</label><input type="checkbox" id="chk1" name="year"></td>
+            <td align="center"><label for="chk2">2012</label><input type="checkbox" id="chk2" name="year"></td>
+            <td align="center"><label for="chk3">2020</label><input type="checkbox" id="chk3" name="year"></td>
+        </tr>
+    </table>
+</div>
+
+<div id="panel">
+    <div id="codigo" class="visor">
+        <div class="numero">1</div>
+        <div class="numero">2</div>
+        <div class="numero">3</div>
+        <div class="numero">4</div>
+    </div>
+    <div id="cortina" class="visor">
+    </div>
+</div>
+
+<div id="control">
+    <div id="show">
+        Mostrar Pin
+    </div>
+    <div id="segundos">
+
+    </div>
+</div>
+
+</body>
+<script src="pintarjetaXYZ.js"></script>
+</html>
