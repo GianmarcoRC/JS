@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Ranking ATP 2025</title>
+    <link rel="stylesheet" href="atp.css" />
+  </head>
+  <body>
+    <div id="encabezado">
+      <h1>ATP: Resultados y clasificación</h1>
+      <table>
+        <tr>
+          <td colspan="6"><hr /></td>
+        </tr>
+        <tr>
+          <td colspan="6" class="celda title">¿Qué información quieres ver?</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td colspan="2">
+            Ranking de tenistas <span>&nbsp;&nbsp;</span>
+            <input type="radio" name="infotype" value="R" checked />
+          </td>
+          <td colspan="2">
+            Partidos jugados<span>&nbsp;&nbsp;</span>
+            <input type="radio" name="infotype" value="M" />
+          </td>
+          <td></td>
+        </tr>
+        <tr>
+          <td colspan="6"><hr /></td>
+        </tr>
+        <tr>
+          <td colspan="6" class="celda title">Ranking de jugadores</td>
+        </tr>
+        <tr>
+          <td colspan="2" class="celda">Selecciona el modo de visualización</td>
+          <td colspan="4" class="celda">Tipo de ordenación</td>
+        </tr>
+        <tr>
+          <td colspan="2" style="text-align: center">
+            <select id="selecttypeinfo">
+              <option value="points" selected>Por puntos</option>
+              <option value="percent">Por número de victorias</option>
+            </select>
+          </td>
+          <td colspan="2">
+            Alfabético<span>&nbsp;&nbsp;</span>
+            <input
+              type="radio"
+              name="ordertype"
+              id="orderalpha"
+              value="alpha"
+            />
+          </td>
+          <td colspan="2">
+            Por puntos o victorias<span>&nbsp;&nbsp;</span>
+            <input type="radio" name="ordertype" id="orderpoints" value="pts" />
+          </td>
+        </tr>
+        <tr>
+          <td colspan="6"><hr /></td>
+        </tr>
+        <tr>
+          <td colspan="6" class="celda title">Jornadas jugadas</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="btnday">Dia 1</div>
+          </td>
+          <td>
+            <div class="btnday">Dia 2</div>
+          </td>
+          <td>
+            <div class="btnday">Dia 3</div>
+          </td>
+          <td>
+            <div class="btnday">Dia 4</div>
+          </td>
+          <td>
+            <div class="btnday">Dia 5</div>
+          </td>
+          <td>
+            <div class="btnday">Dia 6</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div id="lienzo"></div>
+  </body>
+</html>
