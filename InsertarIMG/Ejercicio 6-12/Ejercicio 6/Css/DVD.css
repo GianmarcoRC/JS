@@ -1,0 +1,50 @@
+
+.contenedor{
+    width: 1000px;
+    height: 600px;
+    border: 1px solid black;
+    position:  relative;
+}
+
+#images{
+    
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+    top: 50%;
+    left: 0px;
+    transform: translateY(-50%);
+    position: absolute;
+    background-image: url("/InsertarIMG/IMG/100.png");
+    background-size: 200px;
+    animation-duration: 8s;
+    animation-iteration-count: infinite;
+    animation-name: Screenshot;
+}
+
+@keyframes Screenshot {
+  
+    25%{
+        background-image: url("/InsertarIMG/IMG/001.png");
+        top: 0px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    50%{
+        background-image: url("/InsertarIMG/IMG/004.png");
+      top: 50%;
+      left: calc(100% - 200px);
+        transform: translateY(-50%);
+    }
+    75%{
+        background-image: url("/InsertarIMG/IMG/007.png");
+        top: calc(100% - 200px);
+        left: 50%;          
+        transform: translateX(-50%);
+    }
+    100% {
+        top: 50%;
+        left: 0px;
+          transform: translateY(-50%);    }
+      
+}

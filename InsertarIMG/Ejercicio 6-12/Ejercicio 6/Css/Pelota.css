@@ -1,0 +1,24 @@
+body{
+    margin: 3em 10%;
+    background: #333;
+}
+
+#images:hover{
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode:both ;
+    animation-direction: alternate;
+    animation-name: MovimientoBola;
+    
+}
+
+@keyframes MovimientoBola {
+    0% {
+        transform: translate(0px, 0px) rotate(0);
+    }
+    100% {
+        transform: translate(450px, 0px) rotate(2turn);
+    }
+      
+}

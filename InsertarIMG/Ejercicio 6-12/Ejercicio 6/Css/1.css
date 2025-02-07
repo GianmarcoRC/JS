@@ -1,0 +1,19 @@
+#images{
+    width: 500px;
+    height: 500px;
+    background-position: top left;
+    background-repeat: no-repeat;
+    background-image: url("../HTML5.png");
+    animation-duration: 8s;
+    animation-iteration-count: infinite;
+    animation-name: Galeria;
+}
+
+
+@keyframes Galeria{
+    from { background-image: url("../PHP.png"); }
+    25% { background-image: url("/InsertarIMG/IMG/imgs/001.png"); }
+    50% { background-image: url("/InsertarIMG/IMG/imgs/004.png"); }
+    75% { background-image: url("/InsertarIMG/IMG/imgs/007.png"); }
+    to { background-image: url("../Javascript.png"); }
+}
